@@ -13,13 +13,13 @@ from keras.utils.np_utils import to_categorical
 random.seed(0)
 
 
-# Create and display a gird containing samples of each class (Number) that were imported from MNIST
+# Create and display a gird containing samples from each class (Number) that were imported from MNIST
 def create_samples_grid():
     # Create a figure and a set of subplots.
     fig, axes = plt.subplots(nrows=10, ncols=10, figsize=(15, 15))
     fig.tight_layout()
 
-    # Fill each cell of the grid with the appropriate image, We want to show 10 samples of each class (10 Classes)
+    # Fill the cells of the grid with the appropriate image, We want to show 10 samples from each class (10 Classes)
     for i in range(10):
         for j in range(10):
             # Select all images where the label is = j
@@ -31,7 +31,7 @@ def create_samples_grid():
             # Remove axis around images
             axes[j][i].axis("off")
 
-            # Display the label of each class as column 4 (The center of the grid)
+            # Display the labels for the classes at column 4 (The center of the grid)
             if i == 4:
                 axes[j][i].set_title(str(j))
 
@@ -131,12 +131,9 @@ score = model.evaluate(test_data, test_labels, verbose=0)
 print('Test score:', score[0])
 print('Test accuracy:', score[1])
 
-# url = 'https://www.researchgate.net/profile/Jose_Sempere/publication/221258631/figure/fig1/AS:305526891139075@1449854695342/Handwritten-digit-2.png'
-# url = "https://i.stack.imgur.com/Ds5Rc.png"
-# url = "https://kx.com/images/03_IMAGES/160520-8.png"
-# url = "https://lh3.googleusercontent.com/proxy/MEroOx6SxQerbVzXlv2y8lEyLa-ec9RC_jW-VXJI55SDxOKxaouA1VO2253ru7QGk-QMomuyMRaT2VU23xJpWL4t7burYSMgxwZa5JktYhY84f1Jmfcm6q80Nbl-L_Y"
-# url = "https://lh3.googleusercontent.com/proxy/XMYhWhv961B30oSGEyLVNF6SsYtcmvwRfcCpaL-uTjLXvoetzjDNBWaMp3rA0Dnd7KFX22PEK1BoBXq9cfCcW1ozrKWjGgQ-Q69aqRVbYEa82cnyo0RD5s5x1nxM-2S8hyRbrI1W1H5h911LDyY4n2LDgAZWbNjKopbp9uJHj5hWKgZ5"
+# Number (3) image
 url = "https://www.neuralnine.com/wp-content/uploads/2019/09/3.png"
+
 # HTTP Get request to get the image from the url
 response = requests.get(url, stream=True)
 
